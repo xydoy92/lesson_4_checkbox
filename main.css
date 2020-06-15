@@ -1,0 +1,97 @@
+body {
+    text-align: center;
+}
+div {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    visibility: hidden;
+    display: none;
+}
+
+.check {
+    position: relative;
+    display: block;
+    margin: 40px auto;
+    width: 40px;
+    height: 20px;
+    background: #000;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: ease-in 0.5s;
+}
+
+.gray {
+    background: #505050;
+}
+
+input[class][type="checkbox"]:checked ~ .check {
+    background: #ffffff;
+    box-shadow: 0 0 0 100px #000;
+}
+
+
+.check:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: #ffffff;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.5s;  
+}
+
+.gray:before {
+    background: #7f7f7f;
+}
+
+input[class="1"][type="checkbox"]:checked ~ .check:before {
+    transform: translateX(-50px);
+}
+
+.check:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: #000;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.5s;
+    transform: translateX(50px);
+ 
+}
+/* Переключает свет, но мне не нравится, как движется переключатель */
+input[class="1"][type="checkbox"]:checked ~ .check::after {
+    transform: translateX(0px);
+}
+/* Переключатель движется, как надо */
+input[class="2"][type="checkbox"]:checked ~ .check:before {
+    transform: translateX(20px);
+    background: #000;
+    transition: ease-out 0.5s;
+}
+/* Просто переключатель */
+input[id="3"][type="checkbox"]:checked ~ .check:before {
+    transform: translateX(20px);
+    transition: ease-out 0.5s;
+}
+/* Переключатель, как в Android*/
+input[id="4"][type="checkbox"]:checked ~ .check {
+    background: rgb(9, 142, 231);
+}
+
+input[id="4"][type="checkbox"]:checked ~ .check:before {
+    transform: translateX(20px);
+    background: #ffffff;
+    transition: ease-out 0.5s;
+}
